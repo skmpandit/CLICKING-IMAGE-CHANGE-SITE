@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider</title>
+    <link rel="Stylesheet" href="Style.css">
+</head>
+<body>
+    <div id="preloader"></div>
+    <div class="container">
+        <div class="navbar">
+            <img src="img/logo.png" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Office</a></li>
+                    <li><a href="">Hotels</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </nav>
+            <img src="img/menu.png" class="menu-icon">
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="text-box">
+                    <h5>Our Products</h5>
+                    <h1><b>Simplicity</b><br>is the <b>ultimate</b> sophistication</h1>
+                </div>
+                <img src="img/circle.png" class="small-icon1">
+                <img src="img/circle.png" class="small-icon2">
+                <img src="img/square.png" class="small-icon3">
+            </div>
+            <div class="column">
+                <div class="gallery-box">
+                    <img src="img/pic2.jpg" id="gallery">
+                    <ul>
+                        <li class="btn">01</li>
+                        <li class="btn active">02</li>
+                        <li class="btn">03</li>
+                        <li class="btn">04</li>
+                    </ul>
+                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YBHQbu5rbdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </div>
+        </div>
+        <img src="img/circle.png" class="small-icon4">
+        <img src="img/square.png" class="small-icon5">
+    </div>
+    <script>
+        var btn=document.getElementsByClassName("btn");
+        var gallery=document.getElementById("gallery");
+        var images=new Array(
+            "img/pic1.jpg",
+            "img/pic2.jpg",
+            "img/pic3.jpg",
+            "img/pic4.jpg",
+        );
+        for(let i=0;i<btn.length;i++)
+        {
+            btn[i].onclick=function()
+            {
+                gallery.src=images[i];
+                let current=document.getElementsByClassName("active");
+                current[0].className=current[0].className.replace("active", "");
+                this.className += " active";
+            };
+        }
+    </script>
+    <script>
+        var loader=document.getElementById("preloader");
+        window.addEventListener("load", function(){
+            loader.style.display="none";
+        })
+    </script>
+</body>
+</html>
